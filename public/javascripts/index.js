@@ -34,7 +34,12 @@ var application = new ApplicationManager({
 })
 application.onPlay(function( name ){
   removeSlectedClass("#list")
-  $("#list li").forEach( function(li){
+  // $("#list li").forEach( function(li){
+  //   if( li.getAttribute('data-name') == name )
+  //     li.className = "selected"
+  // })
+
+  forEach($("#list li"), function(li){
     if( li.getAttribute('data-name') == name )
       li.className = "selected"
   })
@@ -59,14 +64,17 @@ function $(selector) {
 }
 //移除 ul 所有的 li 的 class 属性
 function removeSlectedClass(ulSelector){
-  $(ulSelector + " li").forEach( function(li){
-    li.className = ""
-  } )
+  // $(ulSelector + " li").forEach( function(li){
+  //   li.className = ""
+  // } )
+  forEach($(ulSelector + " li"), function(item){
+    item.className = ""
+  })
 }
 
-
-
-
-
-
-
+function forEach(array, callback){
+  for(var i = 0; i < array.length; i++){
+    callback(array[i])
+  }
+  return array
+}

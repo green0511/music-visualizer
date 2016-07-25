@@ -9,7 +9,7 @@ function MusicVisualizer(option) {
   this.source = null;
 
   this.audio = option.audio
-  this.size = option.size || 128;
+  this.size = option.size || 64;
   
   this.audioSource = MusicVisualizer.audioContext.createMediaElementSource(this.audio);
 
