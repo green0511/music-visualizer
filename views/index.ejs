@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=divice-width, initial-scale=1.0 ">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <header>
+      <div class="menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <h1><%= title %></h1>
+    </header>
+    <div class="left">
+      <div class="vol">
+        <p>Volume</p>
+        <input id="volume" type="range" min="0" max="100" value="60">
+      </div>
+
+      <ul class="list" id="list">
+        <p class="title">歌单：</p>
+        <% music.forEach( function (name, index) { %>
+           <li data-name="/media/<%= name%>" data-index="<%= index %>"><%= name.slice(0, -4)%></li> 
+        <%  } )%>
+      </ul>
+      <ul class="type" id="type">
+        <p class="title">类型：</p>
+        <li data-type="column" class="selected">柱状</li>
+        <!-- <li data-type="dot">圆形</li> -->
+      </ul>
+    </div>
+    <div class="right" id="canvas-container"></div>
+    <script type="text/javascript" src="/javascripts/MusicVisualizer.js"></script>
+    <script type="text/javascript" src="/javascripts/Effects.js"></script>
+    <script type="text/javascript" src="/javascripts/ApplicationManager.js"></script>
+    <script type="text/javascript" src="/javascripts/index.js"></script>
+  </body>
+</html>
